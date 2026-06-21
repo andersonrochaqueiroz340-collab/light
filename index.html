@@ -354,6 +354,9 @@
             border-radius: var(--radius);
             padding: 28px;
             transition: var(--transition);
+            height: 420px; /* Altura ideal padronizada para os gráficos */
+            display: flex;
+            flex-direction: column;
         }
 
         .chart-card:hover {
@@ -376,10 +379,8 @@
         .chart-container {
             position: relative;
             width: 100%;
+            height: 300px; /* Altura fixa ideal do gráfico interno */
         }
-
-        .chart-container.bar-chart { height: 380px; }
-        .chart-container.doughnut-chart { height: 280px; }
 
         /* ===== SECOND CHARTS ROW ===== */
         .charts-grid-2 {
@@ -389,8 +390,6 @@
             margin-bottom: 28px;
         }
 
-        .chart-container.horizontal-bar { height: 320px; }
-
         /* ===== COMPLIANCE MATRIX ===== */
         .matrix-section {
             background: var(--bg-card);
@@ -398,6 +397,7 @@
             border-radius: var(--radius);
             padding: 28px;
             margin-bottom: 28px;
+            height: auto; /* Exibe todos os campos sem limite de altura */
         }
 
         .matrix-grid {
@@ -729,7 +729,7 @@
                 <div class="header-icon">📊</div>
                 <div>
                     <h1>Painel de Conformidade — Medições</h1>
-                    <p class="header-subtitle">Parceira: ELLCA · Mês: 01/05/2026 · Análise de Documentação · LIGHT</p>
+                    <p class="header-subtitle">Parceira: Todas as parceiras · Análise de Documentação · LIGHT</p>
                 </div>
             </div>
             <div class="header-right">
@@ -778,26 +778,26 @@
             <div class="kpi-card animate-in delay-1">
                 <div class="kpi-icon">📋</div>
                 <p class="kpi-label">Total de Medições</p>
-                <p class="kpi-value" id="kpi-total">69</p>
+                <p class="kpi-value" id="kpi-total">144</p>
                 <p class="kpi-sub" id="kpi-total-sub">medições analisadas</p>
             </div>
             <div class="kpi-card animate-in delay-2">
                 <div class="kpi-icon">💰</div>
                 <p class="kpi-label">Valor Total Medido</p>
-                <p class="kpi-value" id="kpi-valor-total" style="font-size: 1.7rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">R$&nbsp;3.602.035,06</p>
+                <p class="kpi-value" id="kpi-valor-total" style="font-size: 1.7rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">R$&nbsp;6.798.658,39</p>
                 <p class="kpi-sub" id="kpi-valor-total-sub">soma totalizada</p>
             </div>
             <div class="kpi-card animate-in delay-3">
                 <div class="kpi-icon">✅</div>
                 <p class="kpi-label">Conformidade Geral</p>
-                <p class="kpi-value" id="kpi-compliance">95.6%</p>
-                <p class="kpi-sub" id="kpi-compliance-sub">de 1627 campos aplicáveis</p>
+                <p class="kpi-value" id="kpi-compliance">93.4%</p>
+                <p class="kpi-sub" id="kpi-compliance-sub">de 3217 campos aplicáveis</p>
             </div>
             <div class="kpi-card animate-in delay-4">
                 <div class="kpi-icon">⚠️</div>
                 <p class="kpi-label">Não Conformidades</p>
-                <p class="kpi-value" id="kpi-nc">72</p>
-                <p class="kpi-sub" id="kpi-nc-sub">de 1627 campos</p>
+                <p class="kpi-value" id="kpi-nc">211</p>
+                <p class="kpi-sub" id="kpi-nc-sub">de 3217 campos</p>
             </div>
         </section>
 
@@ -807,14 +807,14 @@
                 <h2 class="chart-title">Conformidade por Categoria Documental</h2>
                 <p class="chart-subtitle">Percentual de SIM em cada campo de verificação</p>
                 <div class="chart-container bar-chart">
-                    <canvas id="complianceBarChart" style="display: block; box-sizing: border-box; height: 380px; width: 1029px;" width="1699" height="627"></canvas>
+                    <canvas id="complianceBarChart" width="1104" height="450" style="display: block; box-sizing: border-box; height: 300px; width: 736px;"></canvas>
                 </div>
             </div>
             <div class="chart-card">
                 <h2 class="chart-title">Distribuição por Tipo de Serviço</h2>
                 <p class="chart-subtitle">Proporção entre Civil e Elétrica</p>
                 <div class="chart-container doughnut-chart">
-                    <canvas id="serviceTypeChart" style="display: block; box-sizing: border-box; height: 280px; width: 1029px;" width="1699" height="462"></canvas>
+                    <canvas id="serviceTypeChart" width="508" height="450" style="display: block; box-sizing: border-box; height: 300px; width: 339px;"></canvas>
                 </div>
             </div>
         </section>
@@ -825,14 +825,14 @@
                 <h2 class="chart-title">Itens Críticos — Maior Não Conformidade</h2>
                 <p class="chart-subtitle">Campos com menor taxa de SIM</p>
                 <div class="chart-container horizontal-bar">
-                    <canvas id="criticalChart" style="display: block; box-sizing: border-box; height: 320px; width: 1029px;" width="1699" height="528"></canvas>
+                    <canvas id="criticalChart" width="806" height="450" style="display: block; box-sizing: border-box; height: 300px; width: 537px;"></canvas>
                 </div>
             </div>
             <div class="chart-card">
                 <h2 class="chart-title">Comparativo Civil vs. Elétrica</h2>
                 <p class="chart-subtitle">Taxa de conformidade por tipo de serviço</p>
                 <div class="chart-container horizontal-bar">
-                    <canvas id="comparisonChart" style="display: block; box-sizing: border-box; height: 320px; width: 1029px;" width="1699" height="528"></canvas>
+                    <canvas id="comparisonChart" width="806" height="450" style="display: block; box-sizing: border-box; height: 300px; width: 537px;"></canvas>
                 </div>
             </div>
         </section>
@@ -848,7 +848,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Datas</div>
@@ -857,7 +857,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Supervisor</div>
@@ -866,7 +866,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Nota/OS</div>
@@ -875,7 +875,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Endereço</div>
@@ -884,7 +884,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Técnico LIGHT</div>
@@ -893,7 +893,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Ref. Elétrica</div>
@@ -902,16 +902,16 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">48 SIM · 0 NÃO · 21 NA</span>
+                    <span class="matrix-count">62 SIM · 0 NÃO · 82 NA</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Líder Equipe</div>
                 <div class="matrix-bar-container">
-                    <div class="matrix-bar medium" style="width: 89.8551%;"></div>
+                    <div class="matrix-bar high" style="width: 95.1389%;"></div>
                 </div>
                 <div class="matrix-stats">
-                    <span class="matrix-percentage medium">90%</span>
-                    <span class="matrix-count">62 SIM · 7 NÃO</span>
+                    <span class="matrix-percentage high">95%</span>
+                    <span class="matrix-count">137 SIM · 7 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Cód. Serviço</div>
@@ -920,7 +920,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Descrição C/M</div>
@@ -929,7 +929,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Unid. Medida</div>
@@ -938,7 +938,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Qtd Total</div>
@@ -947,7 +947,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Vlr Unitário</div>
@@ -956,7 +956,7 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Vlr Total Serv.</div>
@@ -965,16 +965,16 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Obs Material</div>
                 <div class="matrix-bar-container">
-                    <div class="matrix-bar high" style="width: 97.1014%;"></div>
+                    <div class="matrix-bar high" style="width: 98.6111%;"></div>
                 </div>
                 <div class="matrix-stats">
-                    <span class="matrix-percentage high">97%</span>
-                    <span class="matrix-count">67 SIM · 2 NÃO</span>
+                    <span class="matrix-percentage high">99%</span>
+                    <span class="matrix-count">142 SIM · 2 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Valor Medição</div>
@@ -983,43 +983,43 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-count">144 SIM · 0 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Assin. Gestor</div>
                 <div class="matrix-bar-container">
-                    <div class="matrix-bar high" style="width: 100%;"></div>
+                    <div class="matrix-bar low" style="width: 47.9167%;"></div>
                 </div>
                 <div class="matrix-stats">
-                    <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">69 SIM · 0 NÃO</span>
+                    <span class="matrix-percentage low">48%</span>
+                    <span class="matrix-count">69 SIM · 75 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Diário Obra</div>
                 <div class="matrix-bar-container">
-                    <div class="matrix-bar low" style="width: 44.2623%;"></div>
+                    <div class="matrix-bar medium" style="width: 75%;"></div>
                 </div>
                 <div class="matrix-stats">
-                    <span class="matrix-percentage low">44%</span>
-                    <span class="matrix-count">27 SIM · 34 NÃO · 8 NA</span>
+                    <span class="matrix-percentage medium">75%</span>
+                    <span class="matrix-count">102 SIM · 34 NÃO · 8 NA</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Croqui</div>
                 <div class="matrix-bar-container">
-                    <div class="matrix-bar high" style="width: 91.3043%;"></div>
+                    <div class="matrix-bar medium" style="width: 65.2778%;"></div>
                 </div>
                 <div class="matrix-stats">
-                    <span class="matrix-percentage high">91%</span>
-                    <span class="matrix-count">63 SIM · 6 NÃO</span>
+                    <span class="matrix-percentage medium">65%</span>
+                    <span class="matrix-count">94 SIM · 50 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Ordem LIGHT</div>
                 <div class="matrix-bar-container">
-                    <div class="matrix-bar high" style="width: 91.3043%;"></div>
+                    <div class="matrix-bar high" style="width: 95.8333%;"></div>
                 </div>
                 <div class="matrix-stats">
-                    <span class="matrix-percentage high">91%</span>
-                    <span class="matrix-count">63 SIM · 6 NÃO</span>
+                    <span class="matrix-percentage high">96%</span>
+                    <span class="matrix-count">138 SIM · 6 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Doc RER</div>
@@ -1028,25 +1028,25 @@
                 </div>
                 <div class="matrix-stats">
                     <span class="matrix-percentage high">100%</span>
-                    <span class="matrix-count">0 SIM · 0 NÃO · 69 NA</span>
+                    <span class="matrix-count">1 SIM · 0 NÃO · 143 NA</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">APR/PET</div>
                 <div class="matrix-bar-container">
-                    <div class="matrix-bar medium" style="width: 88.4058%;"></div>
+                    <div class="matrix-bar medium" style="width: 80.5556%;"></div>
                 </div>
                 <div class="matrix-stats">
-                    <span class="matrix-percentage medium">88%</span>
-                    <span class="matrix-count">61 SIM · 8 NÃO</span>
+                    <span class="matrix-percentage medium">81%</span>
+                    <span class="matrix-count">116 SIM · 28 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Fotos</div>
                 <div class="matrix-bar-container">
-                    <div class="matrix-bar high" style="width: 94.2029%;"></div>
+                    <div class="matrix-bar high" style="width: 97.2222%;"></div>
                 </div>
                 <div class="matrix-stats">
-                    <span class="matrix-percentage high">94%</span>
-                    <span class="matrix-count">65 SIM · 4 NÃO</span>
+                    <span class="matrix-percentage high">97%</span>
+                    <span class="matrix-count">140 SIM · 4 NÃO</span>
                 </div>
             </div><div class="matrix-item">
                 <div class="matrix-item-label">Qualidade Fotos</div>
@@ -1073,7 +1073,7 @@
         <section class="obs-section animate-in delay-6">
             <h2 class="chart-title">🔎 Observações Relevantes</h2>
             <p class="chart-subtitle">Medições com anotações ou alertas registrados</p>
-            <ul class="obs-list" id="obsList"><li class="obs-item"><span class="obs-badge">ELLCA · Nº 323</span><span class="obs-text">MEDIÇÃO COM INFORMAÇÕES DESORGANIZADAS E ESCRITAS DE PROPRIO PUNHO</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 476</span><span class="obs-text">DOCUMENTOS DE APR E OS FALTANDO, FOTOS DO ANTES FALTANDO, FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 477</span><span class="obs-text">DOCUMENTOS DE APR E OS FALTANDO, FOTOS DO ANTES FALTANDO, FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 516</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 479</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 518</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 460</span><span class="obs-text">SEM FOTOS DO INICIO DE OBRA</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 462</span><span class="obs-text">SEM FOTOS DO INICIO DE OBRA</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 562</span><span class="obs-text">BAIXA QUALIDADE NAS FOTOS, POUCAS FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 336</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 364</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 531</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 368</span><span class="obs-text">FALTA DE FOTOS</span></li></ul>
+            <ul class="obs-list" id="obsList"><li class="obs-item"><span class="obs-badge">ELCOP · Nº 5568</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 5969</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 4954</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS // QTD DE DUTO INSTALADO 24M, QTD DE FRESAGEM E RECAPEAMENTO 30M</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 6695</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS // QTD DE DUTO INSTALADO 99M, QTD DE FRESAGEM E RECAPEAMENTO 45M</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 6700</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 5978</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 5977</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS // MEDIÇÃO PARA ANALISE MAIS PROFUNDA DO SERVIÇO COMPLETO</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 5567</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 5968</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 6699</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS // NÃO HÁ INFORMAÇÃO SOBRE A METRAGEM EXATA INSTALADA, APENAS O TOTAL, MEDIÇÃO DE DUTO COM 24M, POREM A DISTANCIA NO SW É DE 15M</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 6214</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 6698</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 3440</span><span class="obs-text">FOTOS FORNECIDAS APENAS DE PARTE DO SERVIÇO, SEM MOSTRAR TUDO O QUE FOI REALIZADO E INFORMADO NA FOLHA DE MEDIÇÃO // FOTOS COM BAIXA QUALIDADE DEVIDO TODAS ESTAREM NA MESMA FOLHA</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 5979</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 5985</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 3543</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 4955</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 4937</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 3944</span><span class="obs-text">REVER CALCULO DE COBRANÇA, AS CONTAS NÃO FECHAM COM O TOTAL COBRADO</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 6697</span><span class="obs-text">NOMES DOS TRABALHADORES NÃO INFORMADOS</span></li><li class="obs-item"><span class="obs-badge">ELCOP · Nº 3916</span><span class="obs-text">MEDIÇÃO EM COMPLEMENTO A 3325, POREM NENHUMA DA 2 MEDIÇÕES POSSUI FOTOS DA INSTALAÇÃO DO CABO</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 323</span><span class="obs-text">MEDIÇÃO COM INFORMAÇÕES DESORGANIZADAS E ESCRITAS DE PROPRIO PUNHO</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 476</span><span class="obs-text">DOCUMENTOS DE APR E OS FALTANDO, FOTOS DO ANTES FALTANDO, FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 477</span><span class="obs-text">DOCUMENTOS DE APR E OS FALTANDO, FOTOS DO ANTES FALTANDO, FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 516</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 479</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 518</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 460</span><span class="obs-text">SEM FOTOS DO INICIO DE OBRA</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 462</span><span class="obs-text">SEM FOTOS DO INICIO DE OBRA</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 562</span><span class="obs-text">BAIXA QUALIDADE NAS FOTOS, POUCAS FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 336</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 364</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 531</span><span class="obs-text">FALTA DE FOTOS</span></li><li class="obs-item"><span class="obs-badge">ELLCA · Nº 368</span><span class="obs-text">FALTA DE FOTOS</span></li></ul>
         </section>
 
         <!-- DATA TABLE -->
@@ -1081,7 +1081,7 @@
             <div class="table-header">
                 <div>
                     <h2 class="chart-title">Tabela de Dados — Medições</h2>
-                    <p class="chart-subtitle" id="tableCount">Exibindo 69 registros</p>
+                    <p class="chart-subtitle" id="tableCount">Exibindo 144 registros</p>
                 </div>
                 <input type="text" class="search-input" id="searchInput" placeholder="🔍  Buscar por nº da medição, coordenação, tipo ou obs...">
             </div>
@@ -1106,6 +1106,1131 @@
             </tr>
                     </thead>
                     <tbody id="tableBody"><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5568</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;152.865,50</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5969</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;136.074,96</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4954</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;131.300,40</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS // QTD DE DUTO INSTALADO 24M, QTD DE FRESAGEM E RECAPEAMENTO 30M" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS // QTD DE DUTO INSTAL…</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6695</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;125.332,20</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS // QTD DE DUTO INSTALADO 99M, QTD DE FRESAGEM E RECAPEAMENTO 45M" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS // QTD DE DUTO INSTAL…</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6700</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;121.751,28</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5978</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;112.997,92</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5977</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;109.496,58</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS // MEDIÇÃO PARA ANALISE MAIS PROFUNDA DO SERVIÇO COMPLETO" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS // MEDIÇÃO PARA ANALI…</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5567</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;105.836,08</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5968</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;105.836,08</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6699</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;103.050,92</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS // NÃO HÁ INFORMAÇÃO SOBRE A METRAGEM EXATA INSTALADA, APENAS O TOTAL, MEDIÇÃO DE DUTO COM 24M, POREM A DISTANCIA NO SW É DE 15M" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS // NÃO HÁ INFORMAÇÃO …</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6214</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;94.695,44</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6698</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;94.695,44</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3440</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;83.849,25</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="FOTOS FORNECIDAS APENAS DE PARTE DO SERVIÇO, SEM MOSTRAR TUDO O QUE FOI REALIZADO E INFORMADO NA FOLHA DE MEDIÇÃO // FOTOS COM BAIXA QUALIDADE DEVIDO TODAS ESTAREM NA MESMA FOLHA" style="max-width: 300px; white-space: normal; line-height: 1.4;">FOTOS FORNECIDAS APENAS DE PARTE DO SERVIÇO, SEM MOSTRAR TUD…</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5979</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;81.167,52</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5985</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;81.167,52</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6503</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;79.855,55</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3543</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;67.639,60</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5982</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;66.669,14</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6317</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;66.263,34</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4955</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;65.650,20</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5967</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;59.682,00</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6258</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;59.682,00</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6253</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;57.457,12</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5984</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;56.215,88</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5376</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;54.907,44</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5983</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;54.036,50</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5989</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;50.971,80</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4953</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;48.143,48</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3542</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;47.745,60</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6588</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;40.777,44</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5970</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;35.809,20</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5269</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;33.981,20</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3324</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;27.360,83</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4937</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;26.306,10</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3951</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;26.303,82</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3758</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;25.287,93</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6240</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;22.955,64</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3914</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;22.359,80</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3944</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;20.804,74</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="REVER CALCULO DE COBRANÇA, AS CONTAS NÃO FECHAM COM O TOTAL COBRADO" style="max-width: 300px; white-space: normal; line-height: 1.4;">REVER CALCULO DE COBRANÇA, AS CONTAS NÃO FECHAM COM O TOTAL …</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5437</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;20.686,56</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3003</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;20.604,98</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4593</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;20.422,57</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5414</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;20.388,72</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5682</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;20.388,72</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">6697</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;18.939,09</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="NOMES DOS TRABALHADORES NÃO INFORMADOS" style="max-width: 300px; white-space: normal; line-height: 1.4;">NOMES DOS TRABALHADORES NÃO INFORMADOS</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3374</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;18.550,20</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4605</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;17.527,25</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5413</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;16.990,60</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3243</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;16.807,83</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3406</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;16.769,85</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3430</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;16.769,85</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3452</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;16.769,85</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3507</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;16.769,85</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3714</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;16.769,85</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3738</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;16.769,85</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5035</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;15.922,03</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3369</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;15.651,86</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3368</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;15.651,86</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3540</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;15.651,86</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3538</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;15.651,86</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3647</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;15.651,86</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3905</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;14.858,73</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4505</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;4.794,22</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3900</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;4.525,19</span></td>
+                <td><span class="badge badge-civil">CIVIL</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4398</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;7.275,06</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3873</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;662,41</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3762</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;662,41</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4624</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;2.561,72</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4418</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;1.251,56</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">5805</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;2.791,00</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4853</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;1.987,23</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">3916</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;1.004,76</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="MEDIÇÃO EM COMPLEMENTO A 3325, POREM NENHUMA DA 2 MEDIÇÕES POSSUI FOTOS DA INSTALAÇÃO DO CABO" style="max-width: 300px; white-space: normal; line-height: 1.4;">MEDIÇÃO EM COMPLEMENTO A 3325, POREM NENHUMA DA 2 MEDIÇÕES P…</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4286</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;5.151,25</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4843</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;4.682,58</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
+                <td style="font-weight:600; color: var(--text-primary);">4997</td>
+                <td>Qualidade</td>
+                <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
+                <td><span style="font-weight: 600; color: var(--accent-emerald);">R$&nbsp;1.324,82</span></td>
+                <td><span class="badge badge-eletrica">ELÉTRICA</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-nao">NÃO</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-sim">SIM</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td><span class="badge badge-na">NA</span></td>
+                <td title="—" style="max-width: 300px; white-space: normal; line-height: 1.4;">—</td>
+            </tr><tr>
                 <td style="font-weight:600; color: var(--text-primary);">323</td>
                 <td>Qualidade</td>
                 <td><span class="badge badge-na" style="background: rgba(99, 102, 241, 0.12); color: var(--accent-indigo);">01/05/2026</span></td>
